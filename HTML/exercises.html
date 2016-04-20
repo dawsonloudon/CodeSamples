@@ -1,0 +1,39 @@
+<script id="exercises-tpl" type="text/x-handlebars-template">
+    <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item left quarter">
+        </div>
+        <div class="topcoat-navigation-bar__item center half">
+            <h1 class="topcoat-navigation-bar__title">Exercises</h1>
+        </div>
+        <div class="topcoat-navigation-bar__item right quarter">
+            <a id="slide-menu-button" class="topcoat-icon-button--quiet slide-menu-button">
+                <span class="topcoat-icon topcoat-icon--menu-stack" id="menubtn"></span>
+            </a>
+        </div>
+    </div>
+    <div class="row scroller">
+        <ul class="list" id="exercises-items">
+            {{#each exercises}}
+            <li class="list-item" data-item-id="{{this.id}}" data-patient-id="{{this.patient_id}}" data-physician-id="{{this.physician_id}}">
+                <div class="item-content-wrapper">
+                    <div class="item-title">{{this.title}}</div>
+                    <div class="item-inner-content-wrapper">
+                        <div class="item-image">
+                            <img src="{{this.thumbnail}}" width="76" height="65" />
+                        </div>
+                        <div class="item-data-wrapper">
+                            <div class="rep-set-wrapper">
+                                <div class="reps">Reps: <span>{{this.reps}}</span></div>
+                                <div class="sets">Sets: <span>{{this.sets}}</span></div>
+                            </div>
+                            <div class="freq">Frequency: <span>{{this.frequency}}</span></div>
+                            <div class="">Hold Time: <span>{{this.hold_time}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-line"></div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>

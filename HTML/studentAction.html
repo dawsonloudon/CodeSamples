@@ -1,0 +1,77 @@
+<script id="trac-students-action-tpl" type="text/x-handlebars-template">
+    <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item left quarter backbtn">
+            <a id="slide-menu-button" class="topcoat-icon-button--large--quiet"><span
+                    class="topcoat-icon--large topcoat-icon--menu-stack icon-leftArrow"></span></a>
+        </div>
+        <div class="topcoat-navigation-bar__item center half">
+            <h1 class="topcoat-navigation-bar__title">Actions</h1>
+        </div>
+    </div>
+    <div class="status">
+        <p>Current Status</p>
+
+        <div class="status-icons">
+            <div id="status-wifi" class="{{stats.connection}} icon-wifi"></div>
+            <div id="status-printer" class="{{stats.printer}} icon-printer for-printer"></div>
+        </div>
+    </div>
+    <div class="row scroller">
+        <div class="columns large-16">
+            <div class="students-actions-top students-header">
+                <div class="student-list-photo">
+                    <img src="{{student.Photo}}" alt="Student Name" width="81" height="92"/>
+                </div>
+                <h2 class="student-list-headline">{{student.FirstName}} {{student.MiddleInitial}}
+                    {{student.LastName}}</h2>
+
+                <div class="student-list-info">
+                    <div class="student-list-grade">Grade {{student.Grade}}</div>
+                    <div class="student-list-id">ID# {{student.StudentExtID}}</div>
+                </div>
+            </div>
+
+            <div class="student-info">
+                <!-- Content Goes Here -->
+                <div class="student-actions-content">
+                    <div class="input first">
+                        <div class="input-content" id="select-trac">
+                            {{trac.code}}<span>{{trac.short}}</span>
+                        </div>
+                    </div>
+                    <div class="input sacr-action-wrap">
+                        <div class="input-content select">
+                            <select id="sacr-action-list">
+                                {{#each actions}}
+                                <option value="{{this.TracCodeDisciplinaryActionID}}">{{this.ParentDANameShort}}
+                                </option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input sacr-date-wrap alt-last">
+                        <div class="input-content select">
+                            <strong class="sacr-loading"><img src="assets/img/loading-small-3.gif" alt=""/></strong>
+                            <select id="sacr-date-list">
+                                {{#each dates}}
+                                <option value="{{ts}}">{{date}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input last for-printer">
+                        <div class="input-content no-highlight">
+                            <span>Print Pass?</span>
+                            <label class="topcoat-switch">
+                                <input type="checkbox" class="topcoat-switch__input printer-switch"{{usePrinter}}>
+
+                                <div class="topcoat-switch__toggle"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button" id="trac-students-actions-btn">Track Student</div>
+        </div>
+    </div>
+</script>
